@@ -31,6 +31,7 @@ Usage: import the module (see Jupyter notebooks for examples), or run from
 # rather than being imported.
 if __name__ == '__main__':
     import matplotlib
+
     # Agg backend runs without a display
     matplotlib.use('Agg')
     import matplotlib.pyplot as plt
@@ -66,6 +67,7 @@ RESULTS_DIR = os.path.join(ROOT_DIR, "results/nucleus/")
 
 # The dataset doesn't have a standard train/val split, so I picked
 # a variety of images to surve as a validation set.
+# CHANGED
 '''VAL_IMAGE_IDS = [
     "0c2550a23b8a0f29a7575de8c61690d3c31bc897dd5ba66caec201d201a278c2",
     "92f31f591929a30e4309ab75185c96ff4314ce0a7ead2ed2c2171897ad1da0c7",
@@ -93,12 +95,13 @@ RESULTS_DIR = os.path.join(ROOT_DIR, "results/nucleus/")
     "cab4875269f44a701c5e58190a1d2f6fcb577ea79d842522dcab20ccb39b7ad2",
     "8ecdb93582b2d5270457b36651b62776256ade3aaa2d7432ae65c14f07432d49",
 ]'''
-VAL_IMAGE_IDS = ['[n]00112211223103632_aug[3]_split[4]', '[n]00113211223105401_aug[4]_split[1]', '[n]00112211223103702_aug[1]_split[3]', '[l]00112211223103735_aug[3]_split[2]', '[l]00112211223104749_aug[4]_split[2]', '[l]00112211223104804_aug[4]_split[3]', '[n]00112211223103735_aug[3]_split[1]', '[n]00112211223103632_aug[2]_split[1]', '[n]00112211223102926_aug[1]_split[2]', '[n]00113211223105254_aug[4]_split[1]', '[l]00112211223103620_aug[2]_split[4]', '[n]00112211223103735_aug[4]_split[2]', '[n]00112211223104547_aug[1]_split[3]', '[h]00111211223101901_aug[2]_split[2]', '[n]00113211223105228_aug[4]_split[1]', '[n]00113211223105248_aug[2]_split[3]', '[n]00113211223105349_aug[2]_split[2]', '[h]00111211223102024_aug[3]_split[4]', '[h]00111211223101817_aug[4]_split[2]', '[n]00112211223104708_aug[3]_split[3]', '[l]00112211223103632_aug[1]_split[3]', '[h]00111211223101935_aug[2]_split[4]', '[n]00113211223105406_aug[4]_split[2]', '[n]00112211223103049_aug[1]_split[4]', '[l]00112211223104547_aug[4]_split[4]',]
+VAL_IMAGE_IDS = ['00113211223105304_aug[1]_split[2]_patch[1507]_patch[1508]', '00113211223105242_aug[1]_split[1]_patch[1441]_patch[1442]', '00112211223103702_aug[4]_split[4]_patch[959]_patch[960]', '00115220318124445_aug[3]_split[2]_patch[1851]_patch[1852]', '00111211223102012_aug[2]_split[1]_patch[393]_patch[394]', '00115220318124642_aug[4]_split[6]_patch[3311]_patch[3312]', '00112211223103735_aug[3]_split[4]_patch[983]_patch[984]', '00115220318124556_aug[2]_split[5]_patch[2661]_patch[2662]', '00115220318124625_aug[1]_split[2]_patch[3027]_patch[3028]', '00113211223105406_aug[1]_split[3]_patch[1733]_patch[1734]', '00111211223101720_aug[4]_split[1]_patch[121]_patch[122]', '00115220318124458_aug[1]_split[5]_patch[1977]_patch[1978]', '00115220318124650_aug[1]_split[5]_patch[3369]_patch[3370]', '00111211223101720_aug[3]_split[2]_patch[115]_patch[116]', '00115220318124540_aug[2]_split[6]_patch[2519]_patch[2520]', '00113211223105304_aug[4]_split[4]_patch[1535]_patch[1536]', '00111211223101733_aug[2]_split[2]_patch[139]_patch[140]', '00111211223101947_aug[1]_split[1]_patch[321]_patch[322]', '00115220318124551_aug[3]_split[2]_patch[2619]_patch[2620]', '00111211223101709_aug[4]_split[4]_patch[95]_patch[96]', '00115220318124609_aug[4]_split[5]_patch[2829]_patch[2830]', '00115220318124654_aug[1]_split[2]_patch[3411]_patch[3412]', '00115220318124524_aug[4]_split[2]_patch[2343]_patch[2344]', '00115220318124612_aug[1]_split[6]_patch[2843]_patch[2844]', '00115220318124632_aug[1]_split[6]_patch[3131]_patch[3132]', '00115220318124535_aug[2]_split[3]_patch[2465]_patch[2466]', '00112211223104723_aug[3]_split[2]_patch[1139]_patch[1140]', '00112211223102936_aug[4]_split[3]_patch[701]_patch[702]', '00111211223101709_aug[3]_split[2]_patch[83]_patch[84]', '00112211223104804_aug[1]_split[4]_patch[1191]_patch[1192]', '00111211223103356_aug[1]_split[1]_patch[609]_patch[610]', '00112211223104530_aug[3]_split[4]_patch[1047]_patch[1048]', '00112211223104708_aug[2]_split[2]_patch[1099]_patch[1100]', '00112211223103735_aug[1]_split[1]_patch[961]_patch[962]', '00111211223101609_aug[3]_split[4]_patch[23]_patch[24]', '00115220318124615_aug[4]_split[2]_patch[2919]_patch[2920]', '00115220318124445_aug[4]_split[2]_patch[1863]_patch[1864]', '00113211223105317_aug[1]_split[1]_patch[1537]_patch[1538]', '00115220318124654_aug[3]_split[2]_patch[3435]_patch[3436]', '00115220318124628_aug[4]_split[3]_patch[3113]_patch[3114]', '00113211223105235_aug[2]_split[2]_patch[1419]_patch[1420]', '00113211223105235_aug[1]_split[1]_patch[1409]_patch[1410]', '00113211223105357_aug[3]_split[4]_patch[1687]_patch[1688]', '00113211223105228_aug[3]_split[4]_patch[1367]_patch[1368]', '00115220318124642_aug[2]_split[2]_patch[3279]_patch[3280]', '00113211223105248_aug[4]_split[4]_patch[1503]_patch[1504]', '00113211223105317_aug[3]_split[3]_patch[1557]_patch[1558]', '00115220318124625_aug[2]_split[1]_patch[3037]_patch[3038]', '00115220318124605_aug[2]_split[1]_patch[2749]_patch[2750]', '00112211223104804_aug[1]_split[2]_patch[1187]_patch[1188]', '00115220318124609_aug[4]_split[6]_patch[2831]_patch[2832]', '00115220318124645_aug[1]_split[1]_patch[3313]_patch[3314]', '00112211223103049_aug[4]_split[2]_patch[731]_patch[732]', '00115220318124605_aug[1]_split[3]_patch[2741]_patch[2742]', '00115220318124551_aug[1]_split[1]_patch[2593]_patch[2594]', '00115220318124527_aug[1]_split[3]_patch[2357]_patch[2358]', '00115220318124556_aug[4]_split[1]_patch[2677]_patch[2678]', '00111211223102032_aug[4]_split[3]_patch[477]_patch[478]', '00115220318124527_aug[4]_split[2]_patch[2391]_patch[2392]', '00112211223104842_aug[1]_split[3]_patch[1253]_patch[1254]', '00115220318124632_aug[2]_split[2]_patch[3135]_patch[3136]', '00115220318124527_aug[1]_split[2]_patch[2355]_patch[2356]', '00115220318124524_aug[4]_split[5]_patch[2349]_patch[2350]', '00111211223101733_aug[3]_split[2]_patch[147]_patch[148]', '00112211223103620_aug[4]_split[2]_patch[923]_patch[924]', '00111211223101748_aug[4]_split[4]_patch[191]_patch[192]', '00115220318124551_aug[2]_split[4]_patch[2611]_patch[2612]', '00113211223105419_aug[2]_split[3]_patch[1805]_patch[1806]', '00111211223102032_aug[1]_split[2]_patch[451]_patch[452]', '00112211223104723_aug[3]_split[1]_patch[1137]_patch[1138]', '00115220318124635_aug[2]_split[2]_patch[3183]_patch[3184]', '00112211223103049_aug[2]_split[4]_patch[719]_patch[720]', '00113211223105349_aug[3]_split[3]_patch[1653]_patch[1654]', '00115220318124551_aug[3]_split[5]_patch[2625]_patch[2626]', '00115220318124615_aug[1]_split[1]_patch[2881]_patch[2882]', '00111211223101733_aug[4]_split[4]_patch[159]_patch[160]', '00115220318124609_aug[2]_split[5]_patch[2805]_patch[2806]', '00115220318124625_aug[4]_split[4]_patch[3067]_patch[3068]', '00111211223101947_aug[1]_split[2]_patch[323]_patch[324]', '00112211223103152_aug[1]_split[1]_patch[801]_patch[802]', '00112211223103152_aug[1]_split[4]_patch[807]_patch[808]', '00115220318124551_aug[4]_split[4]_patch[2635]_patch[2636]', '00112211223104749_aug[2]_split[3]_patch[1165]_patch[1166]', '00111211223101609_aug[2]_split[3]_patch[13]_patch[14]', '00113211223105304_aug[3]_split[3]_patch[1525]_patch[1526]', '00112211223102936_aug[2]_split[2]_patch[683]_patch[684]', '00111211223101947_aug[1]_split[3]_patch[325]_patch[326]', '00115220318124657_aug[3]_split[1]_patch[3481]_patch[3482]', '00111211223101957_aug[2]_split[4]_patch[367]_patch[368]', '00115220318124514_aug[4]_split[1]_patch[2149]_patch[2150]', '00115220318124650_aug[4]_split[1]_patch[3397]_patch[3398]', '00112211223103114_aug[3]_split[3]_patch[757]_patch[758]', '00112211223102936_aug[2]_split[1]_patch[681]_patch[682]', '00115220318124531_aug[3]_split[6]_patch[2435]_patch[2436]', '00111211223101720_aug[1]_split[1]_patch[97]_patch[98]', '00115220318124535_aug[1]_split[4]_patch[2455]_patch[2456]', '00111211223101748_aug[4]_split[3]_patch[189]_patch[190]', '00115220318124551_aug[3]_split[3]_patch[2621]_patch[2622]', '00112211223103416_aug[1]_split[4]_patch[839]_patch[840]', '00113211223105406_aug[2]_split[1]_patch[1737]_patch[1738]', '00115220318124645_aug[4]_split[5]_patch[3357]_patch[3358]', '00111211223103356_aug[4]_split[2]_patch[635]_patch[636]', '00115220318124501_aug[2]_split[2]_patch[2031]_patch[2032]', '00115220318124518_aug[4]_split[1]_patch[2245]_patch[2246]', '00115220318124458_aug[2]_split[5]_patch[1989]_patch[1990]', '00115220318124535_aug[3]_split[3]_patch[2477]_patch[2478]', '00112211223104530_aug[1]_split[3]_patch[1029]_patch[1030]', '00111211223103254_aug[3]_split[1]_patch[529]_patch[530]', '00113211223105228_aug[4]_split[2]_patch[1371]_patch[1372]', '00113211223105228_aug[3]_split[3]_patch[1365]_patch[1366]', '00113211223105317_aug[4]_split[2]_patch[1563]_patch[1564]', '00111211223102032_aug[3]_split[2]_patch[467]_patch[468]', '00111211223103356_aug[2]_split[2]_patch[619]_patch[620]', '00113211223105327_aug[2]_split[1]_patch[1577]_patch[1578]', '00113211223105248_aug[3]_split[1]_patch[1489]_patch[1490]', '00115220318124621_aug[1]_split[3]_patch[2981]_patch[2982]', '00111211223102038_aug[1]_split[3]_patch[485]_patch[486]', '00115220318124520_aug[1]_split[1]_patch[2257]_patch[2258]', '00115220318124602_aug[2]_split[2]_patch[2703]_patch[2704]', '00115220318124514_aug[3]_split[4]_patch[2143]_patch[2144]', '00115220318124654_aug[3]_split[6]_patch[3443]_patch[3444]', '00115220318124657_aug[4]_split[3]_patch[3497]_patch[3498]', '00111211223101709_aug[4]_split[1]_patch[89]_patch[90]', '00115220318124458_aug[4]_split[1]_patch[2005]_patch[2006]', '00112211223103620_aug[2]_split[4]_patch[911]_patch[912]', '00111211223101817_aug[4]_split[1]_patch[217]_patch[218]', '00115220318124445_aug[3]_split[4]_patch[1855]_patch[1856]', '00112211223103620_aug[4]_split[1]_patch[921]_patch[922]', '00115220318124452_aug[3]_split[4]_patch[1903]_patch[1904]', '00115220318124540_aug[2]_split[1]_patch[2509]_patch[2510]', '00113211223105419_aug[4]_split[1]_patch[1817]_patch[1818]', '00111211223101720_aug[3]_split[3]_patch[117]_patch[118]', '00115220318124524_aug[3]_split[3]_patch[2333]_patch[2334]', '00113211223105349_aug[2]_split[1]_patch[1641]_patch[1642]', '00115220318124612_aug[1]_split[1]_patch[2833]_patch[2834]', '00111211223101748_aug[1]_split[2]_patch[163]_patch[164]', '00115220318124615_aug[4]_split[5]_patch[2925]_patch[2926]', '00115220318124642_aug[2]_split[6]_patch[3287]_patch[3288]', '00115220318124612_aug[2]_split[2]_patch[2847]_patch[2848]', '00112211223104530_aug[4]_split[4]_patch[1055]_patch[1056]', '00113211223105317_aug[4]_split[3]_patch[1565]_patch[1566]', '00115220318124635_aug[1]_split[4]_patch[3175]_patch[3176]', '00115220318124452_aug[1]_split[4]_patch[1879]_patch[1880]', '00111211223101720_aug[2]_split[3]_patch[109]_patch[110]', '00111211223101709_aug[1]_split[3]_patch[69]_patch[70]', '00115220318124628_aug[1]_split[6]_patch[3083]_patch[3084]', '00113211223105406_aug[2]_split[2]_patch[1739]_patch[1740]', '00111211223103254_aug[3]_split[3]_patch[533]_patch[534]', '00112211223103114_aug[1]_split[4]_patch[743]_patch[744]', '00115220318124650_aug[4]_split[6]_patch[3407]_patch[3408]', '00115220318124621_aug[4]_split[3]_patch[3017]_patch[3018]', '00113211223105401_aug[3]_split[3]_patch[1717]_patch[1718]', '00111211223102032_aug[2]_split[3]_patch[461]_patch[462]', '00112211223103434_aug[3]_split[1]_patch[881]_patch[882]', '00115220318124618_aug[1]_split[4]_patch[2935]_patch[2936]', '00115220318124511_aug[3]_split[4]_patch[2095]_patch[2096]', '00113211223105225_aug[1]_split[3]_patch[1317]_patch[1318]', '00112211223103434_aug[1]_split[2]_patch[867]_patch[868]', '00115220318124445_aug[1]_split[6]_patch[1835]_patch[1836]', '00112211223103434_aug[2]_split[3]_patch[877]_patch[878]', '00112211223104827_aug[4]_split[2]_patch[1243]_patch[1244]', '00115220318124609_aug[1]_split[6]_patch[2795]_patch[2796]', '00115220318124642_aug[2]_split[3]_patch[3281]_patch[3282]', '00115220318124645_aug[2]_split[1]_patch[3325]_patch[3326]', '00112211223103434_aug[4]_split[1]_patch[889]_patch[890]', '00112211223104723_aug[2]_split[2]_patch[1131]_patch[1132]', '00111211223102032_aug[4]_split[2]_patch[475]_patch[476]', '00115220318124455_aug[2]_split[1]_patch[1933]_patch[1934]', '00112211223104708_aug[1]_split[4]_patch[1095]_patch[1096]', '00111211223103318_aug[2]_split[3]_patch[589]_patch[590]', '00115220318124527_aug[1]_split[1]_patch[2353]_patch[2354]', '00111211223103254_aug[1]_split[1]_patch[513]_patch[514]', '00115220318124514_aug[1]_split[4]_patch[2119]_patch[2120]', '00115220318124535_aug[4]_split[2]_patch[2487]_patch[2488]', '00113211223105341_aug[3]_split[1]_patch[1617]_patch[1618]']
 
 
 ############################################################
 #  Configurations
 ############################################################
+
 
 class NucleusConfig(Config):
     """Configuration for training on the nucleus segmentation dataset."""
@@ -106,10 +109,12 @@ class NucleusConfig(Config):
     NAME = "nucleus"
 
     # Adjust depending on your GPU memory
-    IMAGES_PER_GPU = 3
+    # CHANGED
+    IMAGES_PER_GPU = 2
 
     # Number of classes (including background)
-    NUM_CLASSES = 1 + 1  # Background + nucleus
+    # CHANGED
+    NUM_CLASSES = 1 + 3  # Background + nucleus
 
     # Number of training and validation steps per epoch
     STEPS_PER_EPOCH = (657 - len(VAL_IMAGE_IDS)) // IMAGES_PER_GPU
@@ -128,7 +133,8 @@ class NucleusConfig(Config):
     IMAGE_RESIZE_MODE = "crop"
     IMAGE_MIN_DIM = 512
     IMAGE_MAX_DIM = 512
-    IMAGE_MIN_SCALE = 2.0
+    #IMAGE_MIN_SCALE = 2.0
+    IMAGE_MIN_SCALE = 1.0
 
     # Length of square anchor side in pixels
     RPN_ANCHOR_SCALES = (8, 16, 32, 64, 128)
@@ -149,7 +155,7 @@ class NucleusConfig(Config):
 
     # If enabled, resizes instance masks to a smaller size to reduce
     # memory load. Recommended when using high-resolution images.
-    USE_MINI_MASK = True
+    USE_MINI_MASK = False
     MINI_MASK_SHAPE = (56, 56)  # (height, width) of the mini-mask
 
     # Number of ROIs per image to feed to classifier/mask heads
@@ -194,7 +200,10 @@ class NucleusDataset(utils.Dataset):
         """
         # Add classes. We have one class.
         # Naming the dataset nucleus, and the class nucleus
-        self.add_class("nucleus", 1, "nucleus")
+        # CHANGED
+        self.add_class("nucleus", 1, "l")
+        self.add_class("nucleus", 2, "h")
+        self.add_class("nucleus", 3, "n")
 
         # Which subset?
         # "val": use hard-coded list above
@@ -212,8 +221,23 @@ class NucleusDataset(utils.Dataset):
                 image_ids = list(set(image_ids) - set(VAL_IMAGE_IDS))
 
         # Add images
+        # CHANGED
+
         for image_id in image_ids:
+            image_id: str
+            '''
+            if image_id.startswith("[l]"):
+                tmp = "l"
+            elif image_id.startswith("[h]"):
+                tmp = "h"
+            elif image_id.startswith("[n]"):
+                tmp = "n"
+            else:
+                raise "unknown image id"
+            '''
+
             self.add_image(
+                #tmp,
                 "nucleus",
                 image_id=image_id,
                 path=os.path.join(dataset_dir, image_id, "images/{}.png".format(image_id)))
@@ -230,15 +254,66 @@ class NucleusDataset(utils.Dataset):
         mask_dir = os.path.join(os.path.dirname(os.path.dirname(info['path'])), "masks")
 
         # Read mask files from .png image
-        mask = []
+        mask = [] # mask图
+        arr = [] # mask类别
         for f in next(os.walk(mask_dir))[2]:
             if f.endswith(".png"):
+                # CHANGED
+                if f.startswith("[l]"):
+                    tmp = 1
+                elif f.startswith("[h]"):
+                    tmp = 2
+                elif f.startswith("[n]"):
+                    tmp = 3
+                else:
+                    print(f)
+                    raise "Unknown mask class"
                 m = skimage.io.imread(os.path.join(mask_dir, f)).astype(np.bool)
                 mask.append(m)
+                arr.append(tmp)
+
         mask = np.stack(mask, axis=-1)
+        arr = np.array(arr,dtype=np.int32)
         # Return mask, and array of class IDs of each instance. Since we have
         # one class ID, we return an array of ones
-        return mask, np.ones([mask.shape[-1]], dtype=np.int32)
+        # return mask, np.ones([mask.shape[-1]], dtype=np.int32)
+        return mask, arr
+
+    '''原来
+     def load_mask(self, image_id):
+            """Generate instance masks for an image.
+           Returns:
+            masks: A bool array of shape [height, width, instance count] with
+                one mask per instance.
+            class_ids: a 1D array of class IDs of the instance masks.
+            """
+            info = self.image_info[image_id]
+            # Get mask directory from image path
+            mask_dir = os.path.join(os.path.dirname(os.path.dirname(info['path'])), "masks")
+    
+            # Read mask files from .png image
+            mask = []
+            for f in next(os.walk(mask_dir))[2]:
+                if f.endswith(".png"):
+                    # TODO: 或许这里可以写个 f.startswith ('[h]')这样的函数？
+                    m = skimage.io.imread(os.path.join(mask_dir, f)).astype(np.bool)
+                    mask.append(m)
+            mask = np.stack(mask, axis=-1)
+            # Return mask, and array of class IDs of each instance. Since we have
+            # one class ID, we return an array of ones
+            # return mask, np.ones([mask.shape[-1]], dtype=np.int32)
+            # CHANGED
+            if info["id"][:3] == "[l]":
+                tmp = 1
+            elif info["id"][:3] == "[h]":
+                tmp = 2
+            elif info["id"][:3] == "[n]":
+                tmp = 3
+            else:
+                raise "Unknown mask class"
+            arr = np.zeros([mask.shape[-1]], dtype=np.int32) + tmp  # 设置mask类别
+            return mask, arr
+    '''
 
     def image_reference(self, image_id):
         """Return the path of the image."""
@@ -377,11 +452,20 @@ def detect(model, dataset_dir, subset):
     dataset.prepare()
     # Load over images
     submission = []
+    APs = []
     for image_id in dataset.image_ids:
+        _1, _2, gt_class_id, gt_bbox, gt_mask = \
+            modellib.load_image_gt(dataset, config,
+                                   image_id)
         # Load image and run detection
         image = dataset.load_image(image_id)
         # Detect objects
         r = model.detect([image], verbose=0)[0]
+        AP, precisions, recalls, overlaps = \
+            utils.compute_ap(gt_bbox, gt_class_id, gt_mask,
+                             r["rois"], r["class_ids"], r["scores"], r['masks'])
+        APs.append(AP)
+        print(f"{image_id}的AP是：{AP}")
         # Encode image to RLE. Returns a string of multiple lines
         source_id = dataset.image_info[image_id]["id"]
         rle = mask_to_rle(source_id, r["masks"], r["scores"])
@@ -400,6 +484,7 @@ def detect(model, dataset_dir, subset):
     with open(file_path, "w") as f:
         f.write(submission)
     print("Saved to ", submit_dir)
+    print(f"mAP= {np.mean(APs)}")
 
 
 ############################################################
@@ -474,7 +559,8 @@ if __name__ == '__main__':
 
     # Load weights
     print("Loading weights ", weights_path)
-    if args.weights.lower() == "coco":
+    if args.weights.lower() == "coco" or "迁移源" in args.weights:
+        print("迁移学习或重新训练")
         # Exclude the last layers because they require a matching
         # number of classes
         model.load_weights(weights_path, by_name=True, exclude=[
